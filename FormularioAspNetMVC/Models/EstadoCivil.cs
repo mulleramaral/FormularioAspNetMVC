@@ -5,14 +5,14 @@ namespace FormularioAspNetMVC.Models
     public enum EstadoCivil
     {
         [Display(Name = "Solteiro(a)")]
-        Solteiro,
+        Solteiro = 1,
         [Display(Name = "Casado(a)")]
-        Casado,
+        Casado = 2,
         [Display(Name = "Divorciado(a)")]
-        Divorciado,
+        Divorciado = 3,
         [Display(Name = "Viúvo(a)")]
-        Viuvo,
+        Viuvo = 4,
         [Display(Name = "Separado(a)")]
-        Separado
+        Separado = 5
     }
 }
