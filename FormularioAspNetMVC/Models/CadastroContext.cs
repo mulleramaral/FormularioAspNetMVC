@@ -6,7 +6,9 @@ namespace FormularioAspNetMVC.Models
     {
         public CadastroContext() : base("DbCadastroPessoa")
         {
-        }
+            Database.SetInitializer(new CreateDatabaseIfNotExists<CadastroContext>());
+            Database.Initialize(false);
+        }   
 
         public DbSet<Pessoa> Pessoas { get; set; }
     }

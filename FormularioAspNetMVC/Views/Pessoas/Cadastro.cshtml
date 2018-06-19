@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="form-group col-md-4">
                                 @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label" })
-                                @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @class = "form-control", placeholder = "000.000.000-00",data_tipo = "cpf" } })
+                                @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @class = "form-control", placeholder = "000.000.000-00", data_tipo = "cpf" } })
                                 @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
                             </div>
 
@@ -121,8 +121,11 @@
     </div>
 
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.mask.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/mascaras.js"></script>
+    <script src="~/Scripts/validacao_ptbr.js"></script>
+
 </body>
 </html>
