@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using FormularioAspNetMVC.Binders;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -13,6 +10,7 @@ namespace FormularioAspNetMVC
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ModelBinders.Binders.Add(typeof(decimal), new DecimalModelBinder());
         }
     }
 }
