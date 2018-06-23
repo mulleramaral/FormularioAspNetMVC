@@ -1,0 +1,61 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc;
+@using FormularioAspNetMVC.Models;
+
+@model PagedList<Pessoa>
+
+@{
+    ViewBag.Title = "Pessoas";
+}
+
+<h2>Pessoas</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Sexo</th>
+                <th>Data Nascimento</th>
+                <th>Estado Civil</th>
+                <th>Logradouro</th>
+                <th>Numero</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Renda</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CPF)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Sexo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DataNascimento)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EstadoCivil)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Logradouro)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NumeroEndereco)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cidade)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Renda)</td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="col-md-3">
+        @Html.ActionLink("Cadastrar", "Cadastro", "Pessoas", new { @class = "btn btn-primary"})
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        @Html.PagedListPager(Model,pagina => Url.Action("Index",new { pagina }))
+    </div>
+    <div class="col-md-4">
+        <span class="pull-right">
+            Listando registros de @Model.FirstItemOnPage a @Model.LastItemOnPage de um total de @Model.TotalItemCount
+        </span>
+    </div>
+</div>

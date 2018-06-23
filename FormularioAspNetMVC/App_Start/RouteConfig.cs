@@ -12,7 +12,7 @@ namespace FormularioAspNetMVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Pessoas", action = "Cadastro", id = UrlParameter.Optional }
+                defaults: new { controller = "Pessoas", action = "index", id = UrlParameter.Optional }
             );
         }
     }

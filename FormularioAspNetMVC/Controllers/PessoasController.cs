@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using X.PagedList;
 
 namespace FormularioAspNetMVC.Controllers
 {
@@ -42,7 +42,6 @@ namespace FormularioAspNetMVC.Controllers
             new { Sigla = "TO", Nome = "Tocantins"},
         };
 
-
         public ActionResult Cadastro()
         {
             ViewBag.Estados = new SelectList(estados, "Sigla", "Nome");
@@ -76,9 +75,10 @@ namespace FormularioAspNetMVC.Controllers
         }
 
         // GET: Pessoas
-        public ActionResult Index()
+        public ActionResult Index(int pagina = 1)
         {
-            return View();
+            var pessoas = db.Pessoas.OrderBy(p => p.Nome).ToPagedList(pagina, 2);
+            return View(pessoas);
         }
     }
 }
