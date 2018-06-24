@@ -75,9 +75,14 @@ namespace FormularioAspNetMVC.Controllers
         }
 
         // GET: Pessoas
-        public ActionResult Index(int pagina = 1)
+        public ActionResult Index(string busca = "",int tamanhoPagina = 2,int pagina = 1)
         {
-            var pessoas = db.Pessoas.OrderBy(p => p.Nome).ToPagedList(pagina, 2);
+            var pessoas = db.Pessoas
+                            .Where(p => p.Nome.Contains(busca))
+                            .OrderBy(p => p.Nome).ToPagedList(pagina, tamanhoPagina);
+
+            ViewBag.Busca = busca;
+            ViewBag.TamanhoPagina = tamanhoPagina;
             return View(pessoas);
         }
     }
